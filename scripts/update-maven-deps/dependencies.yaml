@@ -11,11 +11,17 @@ options:
   - {id: redshift,          type: default, url: "http://redshift-maven-repository.s3-website-us-east-1.amazonaws.com/release"}
   transitivity: deps
   versionConflictPolicy: highest
-  strictVisibility: true
+  strictVisibility: false
   outputFormat: flatfile
   thirdPartyDirectory: 3rdparty/maven
 
 dependencies:
+  org.apache.hadoop:
+    hadoop:
+      lang: java
+      version: 2.6.5
+      modules: [common]
+
   #mleap-tensor
   io.spray:
     spray:
@@ -28,7 +34,7 @@ dependencies:
     spark:
       lang: scala
       version: 2.3.0
-      modules: [mllib-local]
+      modules: [mllib-local, mllib, sql, core]
   com.github.rwl:
     jtransforms:
       lang: java
@@ -70,6 +76,10 @@ dependencies:
       version: 3.0.1
 
 replacements:
+  com.google.protobuf:
+    protobuf-java:
+      lang: java
+      target: "@com_google_protobuf//:protobuf_java"
   org.scalatest:
     scalatest:
       lang: scala
