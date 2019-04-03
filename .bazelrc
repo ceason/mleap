@@ -1,0 +1,6 @@
+build --symlink_prefix=/
+build --strict_java_deps=error
+
+test --test_output=errors
+# allow users to set (or override) flags in this '.gitignore'd file
+try-import %workspace%/.bazelrc-local

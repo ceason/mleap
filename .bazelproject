@@ -1,0 +1,13 @@
+directories:
+  .
+
+targets:
+  //...
+
+additional_languages:
+  scala
+  kotlin
+  go
+
+test_sources:
+  */test/*

@@ -1,0 +1,10 @@
+[
+  {
+    "command": "buildozer",
+    "regex": "buildozer '(add deps.*)'\\s+(.*)$",
+    "args": [
+      "$1",
+      "$2"
+    ]
+  }
+]
